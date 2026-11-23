@@ -21,7 +21,7 @@ export function Footer() {
               <div className="h-7 w-7 rounded-full bg-terracotta text-white text-sm font-bold flex items-center justify-center">
                 ST
               </div>
-              <span className="text-xl font-bold italic">Sniff Trail</span>
+              <span className="text-xl font-bold italic">SnifTRAIL</span>
             </div>
             <p className="text-terracotta/40 text-sm leading-relaxed max-w-xs">
               100% battery-free, wind-up mechanical enrichment for dogs left

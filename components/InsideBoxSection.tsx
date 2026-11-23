@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const CALLOUTS = [
   "10-chamber twist carousel tray",
-  "8-paddle pop power ring",
+  "8-paddle POP-PAW Ring",
   "Center bonus kibble hub",
-  "Cable hopper",
+  "KIBBLEHOPPER",
   "Rear recessed loading insert",
   "Sealed coil steel main spring base",
   "10 starter scent pods",

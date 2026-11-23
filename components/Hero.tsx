@@ -19,7 +19,7 @@ export function Hero() {
               90 minutes of calm and battery-free play while you are away.
             </p>
             <p className="text-sm sm:text-base text-charcoal/60 leading-relaxed max-w-lg mt-2">
-              A 10-chamber time-sent carousel unlocks every 9 minutes, with an
+              A 10-chamber time-descend carousel unlocks every 9 minutes, with an
               8-paddle mechanical pop-paw center hub — zero electronics, zero
               screens, just pure wind-up enrichment.
             </p>

@@ -26,7 +26,7 @@ export function Header() {
               ST
             </div>
             <span className="text-xl font-bold text-charcoal tracking-tight italic">
-              Sniff Trail
+              SnifTRAIL
             </span>
           </Link>
 

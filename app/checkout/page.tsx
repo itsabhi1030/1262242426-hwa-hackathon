@@ -131,7 +131,7 @@ export default function CheckoutPage() {
   const fieldError = (name: keyof FormData) => errors[name];
 
   return (
-    <section className="bg-cream py-12 lg:py-20 min-h-[80vh]">
+    <section className="bg-cream py-16 lg:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
           <h2 className="text-3xl font-bold text-charcoal mb-2">Checkout</h2>

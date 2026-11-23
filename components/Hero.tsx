@@ -18,7 +18,7 @@ export function Hero() {
             <p className="text-lg sm:text-xl text-charcoal/80 leading-relaxed max-w-lg">
               90 minutes of calm and battery-free play while you are away.
             </p>
-            <p className="text-sm sm:text-base text-charcoal/60 leading-relaxed max-w-lg mt-2">
+            <p className="text-sm sm:text-base text-charcoal/60 leading-relaxed max-w-lg">
               A 10-chamber time-descend carousel unlocks every 9 minutes, with an
               8-paddle mechanical pop-paw center hub — zero electronics, zero
               screens, just pure wind-up enrichment.

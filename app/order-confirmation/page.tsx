@@ -62,7 +62,7 @@ export default function OrderConfirmationPage() {
   }
 
   return (
-    <section className="bg-cream py-16 lg:py-24 min-h-[80vh]">
+    <section className="bg-cream py-16 lg:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-terracotta text-white mx-auto mb-4">

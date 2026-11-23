@@ -33,21 +33,24 @@ export function MechanicsSection() {
     setPoppingPaddle(p);
   }, []);
 
-  const handlePress = useCallback((paddleIdx: number) => {
-    if (poppingPaddle !== paddleIdx) return;
-    setPressCount((c) => {
-      const next = c + 1;
-      if (next % 5 === 0) {
-        setBonusCount((b) => b + 1);
-        setShowBonus(true);
-        setTimeout(() => setShowBonus(false), 1200);
-        return 0;
-      }
-      return next;
-    });
-    setPoppingPaddle(-1);
-    setTimeout(nextRandomPaddle, 600);
-  }, [poppingPaddle, nextRandomPaddle]);
+  const handlePress = useCallback(
+    (paddleIdx: number) => {
+      if (poppingPaddle !== paddleIdx) return;
+      setPressCount((c) => {
+        const next = c + 1;
+        if (next % 5 === 0) {
+          setBonusCount((b) => b + 1);
+          setShowBonus(true);
+          setTimeout(() => setShowBonus(false), 1200);
+          return 0;
+        }
+        return next;
+      });
+      setPoppingPaddle(-1);
+      setTimeout(nextRandomPaddle, 600);
+    },
+    [poppingPaddle, nextRandomPaddle]
+  );
 
   useEffect(() => {
     intervalRef.current = window.setInterval(nextRandomPaddle, 2200);
@@ -57,10 +60,7 @@ export function MechanicsSection() {
   }, [nextRandomPaddle]);
 
   return (
-    <section
-      id="mechanics"
-      className="bg-sand py-16 lg:py-24 border-y border-sand/60"
-    >
+    <section id="mechanics" className="bg-sand py-16 lg:py-24 border-y border-sand/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-4">
@@ -134,9 +134,7 @@ export function MechanicsSection() {
             Part B — Try Pop-Paw
           </h3>
           <p className="text-sm text-charcoal/60 mb-8 max-w-xl">
-            Eight paddles arranged in a circle, alternating cobalt blue and
-            sunshine yellow. One random paddle pops up at a time — tap it to
-            score. Every 5 successful presses earns a +1 bonus kibble drop.
+            Eight paddles arranged in a circle, alternating cobalt blue and sunshine yellow. One random paddle pops up at a time — tap it to score. Every 5 successful presses earns a +1 bonus kibble drop.
           </p>
 
           <div className="flex flex-col items-center gap-6">
@@ -145,32 +143,29 @@ export function MechanicsSection() {
               <span>Bonus kibbles: <span className="text-cobalt font-bold">{bonusCount}</span></span>
             </div>
 
-            <div className="relative h-64 w-64 flex items-center justify-center">
-              {Array.from({ length: 8 }).map((_, i) => {
-                const isYellow = i % 2 === 0;
-                const isPopped = poppingPaddle === i;
+            <div className="w-full flex items-center justify-center">
+              <div className="grid grid-cols-4 gap-4 sm:gap-6 w-full max-w-md">
+                {Array.from({ length: 8 }).map((_, i) => {
+                  const isYellow = i % 2 === 0;
+                  const isPopped = poppingPaddle === i;
 
-                return (
-                  <button
-                    key={i}
-                    onClick={() => handlePress(i)}
-                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-transform duration-200 outline-none focus:ring-2 focus:ring-terracotta ${
-                      isPopped
-                        ? "scale-110 rotate-6"
-                        : "scale-100 rotate-0"
-                    } ${isYellow ? "bg-sunshine text-charcoal" : "bg-cobalt text-white"}`}
-                    aria-label={`Paddle ${i + 1}`}
-                  >
-                    <span className={`text-xs font-bold transform ${
-                      isPopped ? "-rotate-6" : "rotate-6"
-                    }`}>
-                      {isPopped ? "POP!" : i + 1}
-                    </span>
-                  </button>
-                );
-              })}
-              <div className="absolute h-16 w-16 rounded-full bg-white border-4 border-sand shadow-inner flex items-center justify-center text-terracotta font-bold text-lg">
-                SnifTrail
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => handlePress(i)}
+                      className={`flex items-center justify-center rounded-full h-14 w-14 sm:h-16 sm:w-16 shadow-lg transition-transform duration-200 outline-none focus:ring-2 focus:ring-terracotta text-lg font-bold ${
+                        isPopped
+                          ? "bg-cobalt text-white scale-125"
+                          : isYellow
+                            ? "bg-sunshine text-charcoal"
+                            : "bg-cobalt text-white"
+                      }`}
+                      aria-label={`Paddle ${i + 1}`}
+                    >
+                      <span className="font-bold text-lg">{isPopped ? "POP!" : i + 1}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -181,8 +176,7 @@ export function MechanicsSection() {
             )}
 
             <p className="text-xs text-charcoal/50 mt-4 max-w-sm text-center">
-              The 9-minute carousel keeps running even if your dog takes a rest
-              — no electronics, no screens, just wind-up mechanics.
+              The 9-minute carousel keeps running even if your dog takes a rest — no electronics, no screens, just wind-up mechanics.
             </p>
           </div>
         </div>

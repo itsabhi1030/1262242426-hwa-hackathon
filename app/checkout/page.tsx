@@ -2,7 +2,7 @@
 
 import { useCart } from "@/context/CartContext";
 import { useRouter, usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const INR = new Intl.NumberFormat("en-IN", {
   style: "currency",
@@ -45,9 +45,11 @@ export default function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  if (pathname === "/checkout" && itemCount === 0) {
-    router.push("/");
-  }
+  useEffect(() => {
+    if (pathname === "/checkout" && itemCount === 0) {
+      router.push("/");
+    }
+  }, [pathname, itemCount, router]);
 
   const validate = (): boolean => {
     const e: FieldErrors = {};
